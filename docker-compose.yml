@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  jupyter:
+    image: jupyter
+    container_name: jupyter
+    hostname: jupyter
+    command: jupyter lab --no-browser --ip 0.0.0.0 --allow-root
+    restart: unless-stopped
+    build: .
+    volumes: 
+      - .:/app
+    ports:
+      - 8888:8888
